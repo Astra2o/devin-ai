@@ -1,0 +1,32 @@
+import userModel from "./userModel.js";
+
+const registerUserinDb = async ({ firstname, lastname, email, password }) => {
+  if (!firstname || !email || !password) {
+    throw new Error("All field required");
+  }
+
+  const userAlready = await userModel.findOne({ email });
+
+  if (!userAlready) {
+    const hashedPassword = await userModel.hashPassword(password);
+    console.log(hashedPassword);
+    
+    const user = await userModel.create({
+      fullname: { firstname, lastname },
+      email,
+      password:hashedPassword,
+    });
+    return user;
+  } else {
+    // console.log(user);
+    console.log(userAlready);
+
+    const result = {
+      alreadyRegister: true,
+      msg: "user is already register",
+    };
+    return result;
+  }
+};
+
+export { registerUserinDb };
