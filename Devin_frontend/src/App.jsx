@@ -3,6 +3,7 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 import Approutes from './routes/Approutes'
+import { UserProvider } from './context/UserContext'
 
 function App() {
   const [token, settoken] = useState(false)
@@ -23,7 +24,9 @@ function App() {
 
   return (
     <>
+    <UserProvider>
       <Approutes/>
+    </UserProvider>
     </>
   )
 }

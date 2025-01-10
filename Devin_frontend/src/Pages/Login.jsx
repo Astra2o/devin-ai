@@ -1,11 +1,20 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from '../config/axios';
+import UserContext from '../context/UserContext';
+
+
 const Login = () => {
+
+
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error,seterror]=useState(false)
+
   const navigate =useNavigate()
+ 
+  const {setuser}= useContext(UserContext);
+
   const handleSubmit = (e) => {
     e.preventDefault();
     // console.log('Logging in with:', { email, password });
@@ -15,10 +24,11 @@ const Login = () => {
     axios.post('/user/login',{email,password})
         .then((res)=>{
             console.log(res.data);
-            if (res.status==201) {
+            // if (res.status==201) {
                 localStorage.setItem('token',res.data.token)
+                setuser(res.data?.user)
                 navigate('/')
-            }
+            // }
             
         })
         .catch((err)=>{

@@ -3,7 +3,10 @@ import { Link, useNavigate } from 'react-router-dom';
 import axios from '../config/axios';
 
 const Register = () => {
-    const navigate=useNavigate()
+    const navigate=useNavigate();
+
+    const {setuser}= useContext(UserContext);
+
   const [formData, setFormData] = useState({
     firstname: '',
     lastname: '',
@@ -29,6 +32,8 @@ const Register = () => {
         // console.log(res.data);
         if (res.status==201) {
             localStorage.setItem('token',res.data.token)
+            setuser(res.data?.user)
+
             navigate('/')
         }
         
