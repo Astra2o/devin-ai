@@ -86,3 +86,18 @@ export const logoutUser = async(req,res)=>{
         res.status(400).send(error.message)
     }
 }
+
+
+export const getProfile = async(req,res)=>{
+    try {
+             console.log(req.user);
+             
+        // const token = req.headers?.authorization?.split(' ')[1] || req.cookies?.token 
+        const user = await userModel.findOne({_id:req.user});
+        console.log(user);
+        //  redisClient.set(token,'logout','EX',60*60*24)
+        res.clearCookie('token').status(200).json({user});
+    } catch (error) {
+        res.status(400).send(error.message)
+    }
+}

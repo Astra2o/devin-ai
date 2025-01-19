@@ -6,15 +6,15 @@ import Approutes from './routes/Approutes'
 import { UserProvider } from './context/UserContext'
 
 function App() {
-  const [token, settoken] = useState(false)
-  const [user, setUser] = useState(false)
-     useEffect(() => {
-       if (token) {
-        // get user detail from api and  data fetch  from api  for home page
-       }
+  // const [token, settoken] = useState(false)
+  // const [user, setUser] = useState(false)
+  //    useEffect(() => {
+  //      if (token) {
+  //       // get user detail from api and  data fetch  from api  for home page
+  //      }
      
        
-     }, [])
+  //    }, [])
       
      
 
