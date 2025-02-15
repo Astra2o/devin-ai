@@ -23,7 +23,7 @@ export const authUser = async(req,res,next)=>{
         }
         
         const decoded = jwt.verify(token,conf.jwtSecret)
-        // console.log(decoded);
+        console.log(decoded);
         
         req.user=decoded;
         return next()

@@ -1,0 +1,6 @@
+user1 login
+
+username :   user@user.in
+password :   user@user.in
+
+token : eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2N2FhMGI4ZWYzNzQ3NThhNGJhZjU5YWMiLCJpYXQiOjE3MzkxOTczMjYsImV4cCI6MTczOTI4MzcyNn0.ge-avWrnPZ_AR8V-lg8vw6n03VGIAYk9_TWN-dPzCUA
