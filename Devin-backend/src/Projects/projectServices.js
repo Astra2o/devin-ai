@@ -19,3 +19,23 @@ export const createProject = async ({ projectName, userId }) => {
     throw error; // Re-throw other errors
   }
 };
+
+
+
+export const allProject = async (userId) => {
+  try {
+    if (!userId) {
+      throw new Error("User ID is required");
+    }
+
+    console.log("Searching projects for user:", userId);
+
+    const projects = await projectModel.find({ users: userId });
+
+    return projects;
+  } catch (error) {
+    console.error("Error fetching projects:", error);
+    throw new Error("Failed to fetch projects"); // Avoid exposing internal errors
+  }
+};
+
